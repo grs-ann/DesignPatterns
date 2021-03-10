@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.AbstractFacrory;
+using DesignPatterns.Builder;
 using DesignPatterns_FabricMethod;
 using System;
 
@@ -8,7 +9,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            AbstractFacrory_Test(new ConcreteFactory1());
+            Builder_Test();
             Console.WriteLine("************");
             Console.WriteLine("Работа паттерна окончена.");
             Console.ReadLine();
@@ -32,6 +33,19 @@ namespace ConsoleApp
             Console.WriteLine(productB.Carrying);
             Console.WriteLine("А так же стол: ");
             Console.WriteLine(productA.GetName());
+        }
+        private static void Builder_Test()
+        {
+            var director = new Director();
+            var builder = new ConcreteBuilder();
+            director.Builder = builder;
+            Console.WriteLine("Базовая - минимальная комплектация продукта(состоит из части А): ");
+            director.buildMinimalViableProduct();
+            Console.WriteLine(builder.GetProduct().ListParts());
+
+            Console.WriteLine("Полная комплектация продукта(состоит из частей А, B, C): ");
+            director.buildFullFeaturedProduct();
+            Console.WriteLine(builder.GetProduct().ListParts());
         }
     }
 }
