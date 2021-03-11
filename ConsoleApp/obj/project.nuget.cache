@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EHeSa6hz06fHU6otkhLbu2f6iD4BPIXAFxL+B9N/lJRIQ+favCiYTVsdPYhASbv4a+F/oZ/mBfStQCzxSZS/oQ==",
+  "dgSpecHash": "irErrFvTZEQ+3PWQrhoXRYi2C0fgpbMa6eGVO/1a1vLnon6ucpoMZkdBUb/UKqvk6JmhnB6GJvsuTBInEseWlg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pvwork\\source\\repos\\DesignPatterns\\ConsoleApp\\ConsoleApp.csproj",
+  "projectFilePath": "D:\\Programming\\Patterns\\DesignPatterns\\ConsoleApp\\ConsoleApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

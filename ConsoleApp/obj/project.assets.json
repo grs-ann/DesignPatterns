@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pvwork\\.nuget\\packages\\": {}
+    "C:\\Users\\stepina\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pvwork\\source\\repos\\DesignPatterns\\ConsoleApp\\ConsoleApp.csproj",
+      "projectUniqueName": "D:\\Programming\\Patterns\\DesignPatterns\\ConsoleApp\\ConsoleApp.csproj",
       "projectName": "ConsoleApp",
-      "projectPath": "C:\\Users\\pvwork\\source\\repos\\DesignPatterns\\ConsoleApp\\ConsoleApp.csproj",
-      "packagesPath": "C:\\Users\\pvwork\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pvwork\\source\\repos\\DesignPatterns\\ConsoleApp\\obj\\",
+      "projectPath": "D:\\Programming\\Patterns\\DesignPatterns\\ConsoleApp\\ConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\stepina\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\Patterns\\DesignPatterns\\ConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\pvwork\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stepina\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -51,9 +51,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\pvwork\\source\\repos\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj": {
-              "projectPath": "C:\\Users\\pvwork\\source\\repos\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj"
+            "D:\\Programming\\Patterns\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj": {
+              "projectPath": "D:\\Programming\\Patterns\\DesignPatterns\\DesignPatterns\\DesignPatterns.csproj"
             }
           }
         }
@@ -66,6 +67,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -81,7 +83,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
