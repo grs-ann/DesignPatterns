@@ -2,6 +2,7 @@
 using DesignPatterns.Builder;
 using DesignPatterns.Prototype;
 using DesignPatterns_FabricMethod;
+using DesignPatterns.Strategy;
 using System;
 
 namespace ConsoleApp
@@ -10,7 +11,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Prototype_Test();
+            Strategy_Test();
             Console.WriteLine("************");
             Console.WriteLine("Работа паттерна окончена.");
             Console.ReadLine();
@@ -88,6 +89,18 @@ namespace ConsoleApp
             Console.WriteLine("      Name: {0:s}, Age: {1:d}, BirthDate: {2:MM/dd/yy}",
                 p.Name, p.Age, p.BirthDate);
             Console.WriteLine("      ID#: {0:d}", p.IdInfo.IdNumber);
+        }
+        public static void Strategy_Test()
+        {
+            var context = new Context();
+
+            Console.WriteLine("Client: Strategy is set to normal sorting.");
+            context.SetStrategy(new ConcreteStrategyA());
+            context.DoSomeBusinessLogic();
+            Console.WriteLine();
+            Console.WriteLine("Client: Strategy is set to reverse sorting.");
+            context.SetStrategy(new ConcreteStrategyB());
+            context.DoSomeBusinessLogic();
         }
     }
 }
