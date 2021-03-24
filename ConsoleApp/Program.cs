@@ -5,6 +5,7 @@ using DesignPatterns_FabricMethod;
 using DesignPatterns.Strategy;
 using System;
 using DesignPatterns.Adapter;
+using DesignPatterns.Decorator;
 
 namespace ConsoleApp
 {
@@ -12,7 +13,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Adapter_Test();
+            Decorator_Test();
             Console.WriteLine("************");
             Console.WriteLine("Работа паттерна окончена.");
             Console.ReadLine();
@@ -110,6 +111,19 @@ namespace ConsoleApp
             Console.WriteLine("Adaptee interface is incompatible with the client.");
             Console.WriteLine("But with adapter client can call it's method.");
             Console.WriteLine(target.GetRequest());
+        }
+        public static void Decorator_Test()
+        {
+            var client = new Client();
+            Console.WriteLine("Client: I get a simple component: ");
+            var simple = new ConcreteComponent();
+            client.ClientCode(simple);
+
+            // Причём можно "оборачивать" другие декораторы!
+            var decoratorA = new ConcreteDecoratorA(simple);
+            var decoratorB = new ConcreteDecoratorB(decoratorA);
+            Console.WriteLine("Client: Now I've got a decorated component: ");
+            client.ClientCode(decoratorB);
         }
     }
 }
