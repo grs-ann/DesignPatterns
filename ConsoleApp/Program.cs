@@ -4,6 +4,7 @@ using DesignPatterns.Prototype;
 using DesignPatterns_FabricMethod;
 using DesignPatterns.Strategy;
 using System;
+using DesignPatterns.Adapter;
 
 namespace ConsoleApp
 {
@@ -11,7 +12,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Strategy_Test();
+            Adapter_Test();
             Console.WriteLine("************");
             Console.WriteLine("Работа паттерна окончена.");
             Console.ReadLine();
@@ -101,6 +102,14 @@ namespace ConsoleApp
             Console.WriteLine("Client: Strategy is set to reverse sorting.");
             context.SetStrategy(new ConcreteStrategyB());
             context.DoSomeBusinessLogic();
+        }
+        public static void Adapter_Test()
+        {
+            var adaptee = new Adaptee();
+            ITarget target = new Adapter(adaptee);
+            Console.WriteLine("Adaptee interface is incompatible with the client.");
+            Console.WriteLine("But with adapter client can call it's method.");
+            Console.WriteLine(target.GetRequest());
         }
     }
 }
