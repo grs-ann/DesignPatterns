@@ -6,6 +6,7 @@ using DesignPatterns.Strategy;
 using System;
 using DesignPatterns.Adapter;
 using DesignPatterns.Decorator;
+using DesignPatterns.ChainOfResponsibilities;
 
 namespace ConsoleApp
 {
@@ -13,7 +14,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Decorator_Test();
+            ChainOfResponcibilityTest();
             Console.WriteLine("************");
             Console.WriteLine("Работа паттерна окончена.");
             Console.ReadLine();
@@ -114,7 +115,7 @@ namespace ConsoleApp
         }
         public static void Decorator_Test()
         {
-            var client = new Client();
+            var client = new DesignPatterns.Decorator.Client();
             Console.WriteLine("Client: I get a simple component: ");
             var simple = new ConcreteComponent();
             client.ClientCode(simple);
@@ -124,6 +125,21 @@ namespace ConsoleApp
             var decoratorB = new ConcreteDecoratorB(decoratorA);
             Console.WriteLine("Client: Now I've got a decorated component: ");
             client.ClientCode(decoratorB);
+        }
+        public static void ChainOfResponcibilityTest()
+        {
+            // Где то в клиентском коде происходит создание цепочки.
+            var monkey = new MonkeyHandler();
+            var squirrel = new SquirrelHandler();
+            var dog = new DogHandler();
+
+            monkey.SetNext(squirrel).SetNext(dog);
+
+            Console.WriteLine("Chain: Monkey -> Squirrel -> Dog");
+            DesignPatterns.ChainOfResponsibilities.Client.ClientCode(monkey);
+
+            Console.WriteLine("SubChain: Squirrel -> Dog");
+            DesignPatterns.ChainOfResponsibilities.Client.ClientCode(squirrel);
         }
     }
 }
