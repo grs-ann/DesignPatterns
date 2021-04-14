@@ -7,6 +7,7 @@ using System;
 using DesignPatterns.Adapter;
 using DesignPatterns.Decorator;
 using DesignPatterns.ChainOfResponsibilities;
+using DesignPatterns.Command;
 
 namespace ConsoleApp
 {
@@ -14,7 +15,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            ChainOfResponcibilityTest();
+            CommandTest();
             Console.WriteLine("************");
             Console.WriteLine("Работа паттерна окончена.");
             Console.ReadLine();
@@ -87,13 +88,13 @@ namespace ConsoleApp
             Console.WriteLine("   p3 instance values (everything was kept the same):");
             DisplayValues(p3);
         }
-        public static void DisplayValues(Person p)
+        private static void DisplayValues(Person p)
         {
             Console.WriteLine("      Name: {0:s}, Age: {1:d}, BirthDate: {2:MM/dd/yy}",
                 p.Name, p.Age, p.BirthDate);
             Console.WriteLine("      ID#: {0:d}", p.IdInfo.IdNumber);
         }
-        public static void Strategy_Test()
+        private static void Strategy_Test()
         {
             var context = new Context();
 
@@ -105,7 +106,7 @@ namespace ConsoleApp
             context.SetStrategy(new ConcreteStrategyB());
             context.DoSomeBusinessLogic();
         }
-        public static void Adapter_Test()
+        private static void Adapter_Test()
         {
             var adaptee = new Adaptee();
             ITarget target = new Adapter(adaptee);
@@ -113,7 +114,7 @@ namespace ConsoleApp
             Console.WriteLine("But with adapter client can call it's method.");
             Console.WriteLine(target.GetRequest());
         }
-        public static void Decorator_Test()
+        private static void Decorator_Test()
         {
             var client = new DesignPatterns.Decorator.Client();
             Console.WriteLine("Client: I get a simple component: ");
@@ -126,7 +127,7 @@ namespace ConsoleApp
             Console.WriteLine("Client: Now I've got a decorated component: ");
             client.ClientCode(decoratorB);
         }
-        public static void ChainOfResponcibilityTest()
+        private static void ChainOfResponcibilityTest()
         {
             // Где то в клиентском коде происходит создание цепочки.
             var monkey = new MonkeyHandler();
@@ -140,6 +141,14 @@ namespace ConsoleApp
 
             Console.WriteLine("SubChain: Squirrel -> Dog");
             DesignPatterns.ChainOfResponsibilities.Client.ClientCode(squirrel);
+        }
+        private static void CommandTest()
+        {
+            Invoker invoker = new Invoker();
+            invoker.SetOnStart(new SimpleCommand("SayHi!"));
+            Receiver receiver = new Receiver();
+            invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+            invoker.DoSomethingImportant();
         }
     }
 }
