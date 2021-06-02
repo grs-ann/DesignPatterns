@@ -11,7 +11,7 @@ namespace SpecificPatternsImplementations.Creational
         string GetName();
     }
     /// <summary>
-    /// Продукт, реализующий общий интерфейс.
+    /// Продукт печенек, реализующий общий интерфейс.
     /// </summary>
     public class Cookie : IProduct
     {
@@ -39,6 +39,9 @@ namespace SpecificPatternsImplementations.Creational
             return null;
         }
     }
+    /// <summary>
+    /// Продукт пироженного, реализующий общий интерфейс.
+    /// </summary>
     public class Cake : IProduct
     {
         private string Name { get; set; }
@@ -65,6 +68,14 @@ namespace SpecificPatternsImplementations.Creational
             return null;
         }
     }
+    /// <summary>
+    /// Данный абстрактный класс представляет собой
+    /// "шаблон" для других создающих фабрик(хотя 
+    /// по сути, он может иметь и собственную реализацию).
+    /// Класс служит не только цели создания объекта, но
+    /// также в нем может быть заложена какая-нибудь 
+    /// бизнес-логика.
+    /// </summary>
     public abstract class Factory
     {
         private int Discount { get; set; }
